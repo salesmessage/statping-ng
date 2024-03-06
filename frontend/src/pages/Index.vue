@@ -34,7 +34,7 @@
 
       <div class="col-12 full-col-12">
           <div v-for="service in services" :ref="service.id" v-bind:key="service.id">
-              <ServiceBlock :service="service" />
+              <ServiceBlock :service="service" v-if="service.type !== 'static'" />
           </div>
       </div>
 
