@@ -32,7 +32,7 @@
 
       <Group v-for="group in groups" v-bind:key="group.id" :group=group />
 
-      <div class="col-12 full-col-12">
+      <div v-if="false" class="col-12 full-col-12">
           <div v-for="service in services" :ref="service.id" v-bind:key="service.id">
               <ServiceBlock :service="service" v-if="service.type !== 'static'" />
           </div>
