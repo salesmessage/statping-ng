@@ -37,10 +37,6 @@
                                 {{interval.text}}
                             </a>
                         </div>
-
-                        <span class="d-none float-left d-md-inline">
-                            {{smallText(service)}}
-                        </span>
                     </div>
 
                 </div>
