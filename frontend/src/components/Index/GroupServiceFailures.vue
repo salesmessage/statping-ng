@@ -17,8 +17,6 @@
             <p class="divided">
               <span class="font-2 text-muted">90 {{$t('days_ago')}}</span>
               <span class="divider"></span>
-              <span class="text-center font-2" :class="{'text-muted': service.online, 'text-danger': !service.online}">{{service_txt}}</span>
-              <span class="divider"></span>
               <span class="font-2 text-muted">{{$t('today')}}</span>
             </p>
           </div>
