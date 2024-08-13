@@ -45,11 +45,11 @@
             </div>
 
             <div class="form-group row" v-if="service.type === 'static'">
-                <label class="col-sm-4 col-form-label">Online</label>
+                <label class="col-sm-4 col-form-label">Optimal</label>
                 <div class="col-12 col-md-8 mt-1 mb-2 mb-md-0">
                     <span @click="service.online = !!service.online" class="switch float-left">
                         <input v-model="service.online" type="checkbox" name="online-option" class="switch" id="switch-online" v-bind:checked="service.online">
-                        <label for="switch-online">Service online status</label>
+                        <label for="switch-online">Service optimal status</label>
                     </span>
                 </div>
             </div>
