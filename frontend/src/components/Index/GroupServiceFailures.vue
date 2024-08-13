@@ -68,9 +68,9 @@ export default {
         this.hover_text = ""
       },
     mouseover(e) {
-      let txt = `${e.amount} Failures`
+      let txt = `${e.amount} Incidents`
       if (e.amount === 0) {
-        txt = `No Issues`
+        txt = `No Incidents`
       }
       this.hover_text = `${e.date.toLocaleDateString()} - ${txt}`
     },
