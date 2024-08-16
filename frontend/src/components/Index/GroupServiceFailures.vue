@@ -72,6 +72,9 @@ export default {
       if (e.amount === 0) {
         txt = `Performing well without any incidents`
       }
+      if (e.amount === 1) {
+        txt = `1 Incident`
+      }
       this.hover_text = `${e.date.toLocaleDateString()} - ${txt}`
     },
       async lastDaysFailures() {
