@@ -304,9 +304,9 @@ export default {
                         const dt = new Date(ts).toLocaleDateString("en-us", timeoptions)
                         let val = series[seriesIndex][dataPointIndex];
                         if (val >= 10000) {
-                            val = Math.round(val / 1000) + " ms"
+                            val = Math.round(val / 1000) + " s"
                         } else {
-                            val = val + " μs"
+                            val = val + " ms"
                         }
                         return `<div class="chartmarker"><span>Response Time: </span><span class="font-3">${val}</span><span>${dt}</span></div>`
                     },

@@ -214,9 +214,9 @@ func (s *Service) Close() {
 
 func humanMicro(val int64) string {
 	if val < 10000 {
-		return fmt.Sprintf("%d μs", val)
+		return fmt.Sprintf("%d ms", val)
 	}
-	return fmt.Sprintf("%0.0f ms", float64(val)*0.001)
+	return fmt.Sprintf("%0.0f s", float64(val)*0.001)
 }
 
 // IsRunning returns true if the service go routine is running
