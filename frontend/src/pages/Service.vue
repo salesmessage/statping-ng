@@ -148,7 +148,7 @@ export default {
             tab: "failures",
             authenticated: false,
             ready: false,
-            group: "15m",
+            group: "1h",
             data: null,
             uptime_data: null,
             loaded: false,
