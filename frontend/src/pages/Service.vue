@@ -37,7 +37,7 @@
                             <flatPickr :disabled="!loaded" @on-change="reload" v-model="end_time" :config="{ wrap: true, allowInput: true, enableTime: true, dateFormat: 'Z', altInput: true, altFormat: 'Y-m-d h:i K', maxDate: this.endOf('today') }" type="text" class="form-control text-left" required />
                             <small class="d-block">To {{this.format(new Date(end_time))}}</small>
                         </div>
-                        <div class="col">
+                        <div class="col d-md-none">
                             <select :disabled="!loaded" @change="chartHits(service)" v-model="group" class="form-control">
                                 <option value="1m">1 Minute</option>
                                 <option value="5m">5 Minutes</option>
@@ -77,7 +77,7 @@
 
             </div>
 
-            <div class="card text-black-50 bg-white mb-3">
+            <div class="card text-black-50 bg-white mb-3 d-md-none">
                 <div class="card-header text-capitalize">Service Incidents</div>
                 <div class="card-body">
                     <div class="service-chart-heatmap mt-5 mb-4">
