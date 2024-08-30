@@ -154,7 +154,7 @@ export default {
             loaded: false,
             messages: [],
             failures: [],
-            start_time: this.beginningOf('day', this.nowSubtract(259200 * 3)),
+            start_time: this.beginningOf('day', this.nowSubtract(86400 * 3)),
             end_time: this.endOf('today'),
             timedata: null,
             load_timedata: false,
