@@ -235,9 +235,9 @@ export default Vue.mixin({
     },
     humanTime(val) {
       if (val >= 1000) {
-        return Math.round(val / 1000) + " ms"
+        return Math.round(val / 1000) + " s"
       }
-      return val + " μs"
+      return val + " ms"
     },
     humanTimeNum(val) {
       if (val >= 1000) {

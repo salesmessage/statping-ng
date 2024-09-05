@@ -37,7 +37,7 @@
                             <flatPickr :disabled="!loaded" @on-change="reload" v-model="end_time" :config="{ wrap: true, allowInput: true, enableTime: true, dateFormat: 'Z', altInput: true, altFormat: 'Y-m-d h:i K', maxDate: this.endOf('today') }" type="text" class="form-control text-left" required />
                             <small class="d-block">To {{this.format(new Date(end_time))}}</small>
                         </div>
-                        <div class="col">
+                        <div class="col d-md-none">
                             <select :disabled="!loaded" @change="chartHits(service)" v-model="group" class="form-control">
                                 <option value="1m">1 Minute</option>
                                 <option value="5m">5 Minutes</option>
@@ -77,7 +77,7 @@
 
             </div>
 
-            <div class="card text-black-50 bg-white mb-3">
+            <div class="card text-black-50 bg-white mb-3 d-md-none">
                 <div class="card-header text-capitalize">Service Incidents</div>
                 <div class="card-body">
                     <div class="service-chart-heatmap mt-5 mb-4">
@@ -148,13 +148,13 @@ export default {
             tab: "failures",
             authenticated: false,
             ready: false,
-            group: "15m",
+            group: "1h",
             data: null,
             uptime_data: null,
             loaded: false,
             messages: [],
             failures: [],
-            start_time: this.beginningOf('day', this.nowSubtract(259200 * 3)),
+            start_time: this.beginningOf('day', this.nowSubtract(86400 * 3)),
             end_time: this.endOf('today'),
             timedata: null,
             load_timedata: false,
@@ -304,9 +304,9 @@ export default {
                         const dt = new Date(ts).toLocaleDateString("en-us", timeoptions)
                         let val = series[seriesIndex][dataPointIndex];
                         if (val >= 10000) {
-                            val = Math.round(val / 1000) + " ms"
+                            val = Math.round(val / 1000) + " s"
                         } else {
-                            val = val + " μs"
+                            val = val + " ms"
                         }
                         return `<div class="chartmarker"><span>Response Time: </span><span class="font-3">${val}</span><span>${dt}</span></div>`
                     },
