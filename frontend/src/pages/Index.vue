@@ -23,8 +23,8 @@
                   <div class="no-decoration font-3">
                     {{service.name}}
                     <MessagesIcon :messages="service.messages"/>
+                    <span class="badge float-right" :class="{'bg-success': service.online, 'bg-danger': !service.online }">{{service.online ? "OPTIMAL" : "DEGRADED"}}</span>
                   </div>
-                  <span class="badge float-right" :class="{'bg-success': service.online, 'bg-danger': !service.online }">{{service.online ? "OPTIMAL" : "DEGRADED"}}</span>
                   <GroupServiceFailures :service="service"/>
                   <IncidentsBlock :service="service"/>
               </div>
