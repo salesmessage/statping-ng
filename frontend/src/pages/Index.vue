@@ -22,6 +22,7 @@
               <div class="list-group-item list-group-item-action">
                   <div class="no-decoration font-3">
                     {{service.name}}
+                    <span class="badge custom ml-2">Details</span>
                     <MessagesIcon :messages="service.messages"/>
                     <span class="badge float-right" :class="{'bg-success': service.online, 'bg-danger': !service.online }">{{service.online ? "OPTIMAL" : "DEGRADED"}}</span>
                   </div>
@@ -122,3 +123,27 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+  .list-group-item {
+    .badge {
+      &.custom {
+        opacity: 0;
+        color: #000000;
+        padding: 4px 8px;
+        font-size: 12px;
+        font-weight: 500;
+        border: 1px solid #E9EBEC;
+      }
+    }
+
+    &:hover {
+      .badge {
+        &.custom {
+          opacity: 1;
+        }
+      }
+    }
+  }
+</style>
+
