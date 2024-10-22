@@ -9,13 +9,11 @@
                     {{service.name}}
                     <span class="badge custom ml-2">Details</span>
                     <MessagesIcon :messages="service.messages"/>
-                  </div>
-                  <span class="badge text-uppercase float-right" :class="{'bg-success': service.online, 'bg-danger': !service.online }">
+                    <span class="badge text-uppercase float-right" :class="{'bg-success': service.online, 'bg-danger': !service.online }">
                       {{service.online ? $t('online') : $t('offline')}}
                   </span>
-
+                  </div>
                   <GroupServiceFailures :service="service"/>
-
                   <IncidentsBlock :service="service"/>
                 </router-link>
             </div>
