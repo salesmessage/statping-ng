@@ -250,6 +250,10 @@ func SelectAllServices(start bool) (map[int64]*Service, error) {
 		s.prevOnline = true
 		// collect initial service stats
 		s.UpdateStats()
+
+		if s.Type == "static" {
+			s.Online = true
+		}
 		allServices[s.Id] = s
 		if start {
 			CheckinProcess(s)
