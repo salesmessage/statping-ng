@@ -121,7 +121,7 @@ require (
 	github.com/vultr/govultr v0.3.3 // indirect
 	go.opencensus.io v0.22.3 // indirect
 	go.uber.org/ratelimit v0.1.0 // indirect
-	golang.org/x/net v0.4.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.3.0 // indirect
 	golang.org/x/text v0.5.0 // indirect
