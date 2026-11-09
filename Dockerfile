@@ -10,7 +10,7 @@ RUN yarn build && yarn cache clean
 
 # Statping Golang BACKEND building from source
 # Creates "/go/bin/statping" and "/usr/local/bin/sass" for copying
-FROM golang:1.20.0-alpine AS backend
+FROM golang:1.26-alpine AS backend
 LABEL maintainer="Statping-NG (https://github.com/statping-ng)"
 ARG VERSION
 ARG COMMIT
@@ -30,6 +30,8 @@ ADD go.mod go.sum ./
 RUN go mod download
 ENV GO111MODULE on
 ENV CGO_ENABLED 1
+# musl >= 1.2.4 (Alpine 3.18+) dropped the *64 LFS aliases that mattn/go-sqlite3 v2.0.3 uses
+ENV CGO_CFLAGS="-D_LARGEFILE64_SOURCE"
 COPY cmd ./cmd
 COPY database ./database
 COPY handlers ./handlers
