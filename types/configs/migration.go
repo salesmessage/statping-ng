@@ -95,7 +95,7 @@ func (d *DbConfig) BackupAssets() error {
 		if err := utils.RenameDirectory(utils.Directory+"/assets", utils.Directory+"/assets_backup"); err != nil {
 			return err
 		}
-		log.Infof("Old assets are now stored in: " + utils.Directory + "/assets_backup")
+		log.Info("Old assets are now stored in: " + utils.Directory + "/assets_backup")
 	}
 	return nil
 }
