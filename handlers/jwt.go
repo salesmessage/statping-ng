@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/pkg/errors"
 	"github.com/statping-ng/statping-ng/types/users"
 	"net/http"
