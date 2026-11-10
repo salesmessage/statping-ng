@@ -341,7 +341,7 @@ func importCli(args []string) error {
 
 func ask(format string) bool {
 
-	fmt.Printf(fmt.Sprintf(format + " [y/N]: "))
+	fmt.Print(format + " [y/N]: ")
 	reader := bufio.NewReader(os.Stdin)
 	text, _ := reader.ReadString('\n')
 	text = strings.Replace(text, "\n", "", -1)

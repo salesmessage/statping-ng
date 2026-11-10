@@ -42,7 +42,7 @@ func Connect(configs *DbConfig, retry bool) error {
 
 	dbSession, err := database.Openw(configs.DbConn, conn)
 	if err != nil {
-		log.Errorf(fmt.Sprintf("Database connection error %s", err))
+		log.Errorf("Database connection error %s", err)
 		if retry {
 			log.Warnln(fmt.Sprintf("Database %s connection to '%s' is not available, trying again in 5 seconds...", configs.DbConn, configs.DbHost))
 			time.Sleep(5 * time.Second)
