@@ -15,19 +15,19 @@ var (
 type Notification struct {
 	Id          int64           `gorm:"primary_key;column:id" json:"id"`
 	Method      string          `gorm:"column:method" json:"method"`
-	Host        null.NullString `gorm:"column:host" json:"host,omitempty"`
-	Port        null.NullInt64  `gorm:"column:port" json:"port,omitempty"`
-	Username    null.NullString `gorm:"column:username" json:"username,omitempty"`
-	Password    null.NullString `gorm:"column:password" json:"password,omitempty"`
-	Var1        null.NullString `gorm:"column:var1" json:"var1,omitempty"`
-	Var2        null.NullString `gorm:"column:var2" json:"var2,omitempty"`
-	ApiKey      null.NullString `gorm:"column:api_key" json:"api_key,omitempty"`
-	ApiSecret   null.NullString `gorm:"column:api_secret" json:"api_secret,omitempty"`
+	Host        null.NullString `gorm:"column:host" json:"host,omitempty" scope:"admin"`
+	Port        null.NullInt64  `gorm:"column:port" json:"port,omitempty" scope:"admin"`
+	Username    null.NullString `gorm:"column:username" json:"username,omitempty" scope:"admin"`
+	Password    null.NullString `gorm:"column:password" json:"password,omitempty" scope:"admin"`
+	Var1        null.NullString `gorm:"column:var1" json:"var1,omitempty" scope:"admin"`
+	Var2        null.NullString `gorm:"column:var2" json:"var2,omitempty" scope:"admin"`
+	ApiKey      null.NullString `gorm:"column:api_key" json:"api_key,omitempty" scope:"admin"`
+	ApiSecret   null.NullString `gorm:"column:api_secret" json:"api_secret,omitempty" scope:"admin"`
 	Enabled     null.NullBool   `gorm:"column:enabled;type:boolean;default:false" json:"enabled,omitempty"`
 	Limits      int             `gorm:"not null;column:limits" json:"limits"`
 	Removable   bool            `gorm:"column:removable" json:"removable"`
-	SuccessData null.NullString `gorm:"type:text;column:success_data" json:"success_data,omitempty"`
-	FailureData null.NullString `gorm:"type:text;column:failure_data" json:"failure_data,omitempty"`
+	SuccessData null.NullString `gorm:"type:text;column:success_data" json:"success_data,omitempty" scope:"admin"`
+	FailureData null.NullString `gorm:"type:text;column:failure_data" json:"failure_data,omitempty" scope:"admin"`
 	DataType    string          `gorm:"-" json:"data_type,omitempty"`
 	RequestInfo string          `gorm:"-" json:"request_info,omitempty"`
 	CreatedAt   time.Time       `gorm:"column:created_at" json:"created_at"`

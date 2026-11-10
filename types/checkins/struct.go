@@ -11,7 +11,7 @@ type Checkin struct {
 	ServiceId   int64               `gorm:"index;column:service" json:"service_id"`
 	Name        string              `gorm:"column:name" json:"name"`
 	Interval    int64               `gorm:"column:check_interval" json:"interval"`
-	ApiKey      string              `gorm:"column:api_key"  json:"api_key"`
+	ApiKey      string              `gorm:"column:api_key"  json:"api_key" scope:"user,admin"`
 	CreatedAt   time.Time           `gorm:"column:created_at" json:"created_at"`
 	UpdatedAt   time.Time           `gorm:"column:updated_at" json:"updated_at"`
 	Running     chan bool           `gorm:"-" json:"-"`
