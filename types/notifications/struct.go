@@ -42,7 +42,7 @@ type Notification struct {
 	Form          []NotificationForm `gorm:"-" json:"form"`
 	LastSent      time.Time          `gorm:"-" json:"-"`
 	LastSentCount int                `gorm:"-" json:"-"`
-	Logs          []*NotificationLog `gorm:"-" json:"logs,omitempty"`
+	Logs          []*NotificationLog `gorm:"-" json:"logs,omitempty" scope:"admin"`
 }
 
 type NotificationLog struct {
