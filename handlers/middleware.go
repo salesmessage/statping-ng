@@ -107,6 +107,12 @@ func scoped(handler func(r *http.Request) interface{}) http.Handler {
 	})
 }
 
+// readAuthenticated works like scoped, but rejects requests that are not read authenticated
+// (a logged in user, the API secret or an admin API key) with 401 before running the handler.
+func readAuthenticated(handler func(r *http.Request) interface{}) http.Handler {
+	return readOnly(scoped(handler), false)
+}
+
 // authenticated is a middleware function to check if user is an Admin before running original request
 func authenticated(handler func(w http.ResponseWriter, r *http.Request), redirect bool) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

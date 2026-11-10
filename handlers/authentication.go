@@ -25,6 +25,8 @@ func hasSetupEnv() bool {
 }
 
 // hasAPIQuery checks the `api` query parameter against the API Secret Key
+// or the API key of an admin user. It grants admin access, so the API key
+// of a non-admin user is not accepted.
 func hasAPIQuery(r *http.Request) bool {
 	query := r.URL.Query()
 	key := query.Get("api")
@@ -37,6 +39,9 @@ func hasAPIQuery(r *http.Request) bool {
 	// find user with API key
 	user, err := users.FindByAPIKey(key)
 	if err != nil {
+		return false
+	}
+	if !user.Admin.Bool {
 		return false
 	}
 	if subtle.ConstantTimeCompare([]byte(key), []byte(user.ApiKey)) == 1 {
